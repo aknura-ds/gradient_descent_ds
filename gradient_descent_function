@@ -1,0 +1,23 @@
+import numpy as np
+
+def loss_func(x): # функция потерь
+    return (x-5)**2
+
+def gradient(x): # градиент функции потерь
+    return 2*(x-5)
+
+def gradient_descent(start_x, learning_rate, num_iter): # градиентный спуск
+    x = start_x
+    for i in range(num_iter):
+        grad = gradient(x)
+        x -= learning_rate * grad
+    return x
+
+# параметры
+start_x = 0.0
+learning_rate = 0.1
+num_iter = 30
+
+optimal_x = gradient_descent(start_x, learning_rate, num_iter)
+
+print(f"Оптимальное значение x : {optimal_x}")
